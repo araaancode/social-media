@@ -1,0 +1,412 @@
+<!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <% if (message) { %>
+            <div class="alert alert-success">
+                <%= message %>
+            </div>
+            <% } %>
+                <h1>Welcome, <%= username %>!</h1>
+                <button class="btn btn-danger logout-btn">Logout</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $(".logout-btn").click(function (e) {
+                e.preventDefault()
+
+                $.ajax({
+                    type: "DELETE",
+                    url: '/M00964713/login',
+                    success: function (response) {
+                        location.reload('/M00964713')
+                    }
+                });
+
+                location.reload('/M00964713')
+            });
+        });
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Social Media</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/choices.js/public/assets/styles/choices.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://social.webestica.com/assets/css/style.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" type="image/x-icon">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.js"
+        integrity="sha512-JCDnPKShC1tVU4pNu5mhCEt6KWmHf0XPojB0OILRMkr89Eq9BHeBP+54oUlsmj8R5oWqmJstG1QoY6HkkKeUAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.css"
+        integrity="sha512-6qScZESleBziOBqJwOPurSy6lhLqHGjHNALOOFX0mzRVPiE5SZQvepRzeSO1OB475fcZywuMjxtkrFaO93aq9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+    <header class="navbar-light fixed-top header-static bg-mode">
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/M00964713">
+                    <img class="light-mode-item navbar-brand-item"
+                        src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" alt="logo">
+                    <img class="dark-mode-item navbar-brand-item"
+                        src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" alt="logo">
+                </a>
+                <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-animation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0"
+                        style="margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                        <div class="nav-item w-100">
+                            <form class="rounded position-relative" method="GET" action="/M00964713/users">
+                                <input class="form-control ps-5 bg-light" type="search" name="username"
+                                    placeholder="Search Users..." aria-label="Search">
+                                <button
+                                    class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                            </form>
+                        </div>
+
+                        <div class="nav-item w-100 mx-4">
+                            <form class="rounded position-relative" method="GET" action="/M00964713/contents">
+                                <input class="form-control ps-5 bg-light" type="search" name="title" id="title"
+                                    placeholder="Search Contents..." aria-label="Search">
+                                <button
+                                    class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+
+                    <li class="nav-item ms-2 dropdown">
+                        <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button"
+                            data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img class="avatar-img rounded-2" src="" alt="">
+                        </a>
+                        <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3"
+                            aria-labelledby="profileDropdown">
+                            <li class="px-3">
+                                <div class="d-flex align-items-center position-relative">
+                                    <div class="avatar me-3">
+                                        <img class="avatar-img rounded-circle" src="" alt="avatar">
+                                    </div>
+                                    <div>
+                                        <a class="h6 stretched-link" href="#">
+                                            <%=username%>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center"
+                                    href="/M00964713/profile">View
+                                    profile</a>
+                            </li>
+                            <li><button class="dropdown-item bg-danger-soft-hover logout-btn"><i
+                                        class="bi bi-power fa-fw me-2"></i>Sign
+                                    Out</button></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"> <span class="h6 mb-0 fw-bold d-lg-none ms-2 text-white">My
+                                    profile</span></span>
+
+                        </button>
+                    </div>
+
+                    <nav class="navbar navbar-expand-lg mx-0">
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+                            <div class="offcanvas-header">
+                                <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="offcanvas-body d-block px-2 px-lg-0">
+                                <div class="card overflow-hidden">
+                                    <div class="h-50px"
+                                        style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="text-center">
+                                            <div class="avatar avatar-lg mt-n5 mb-3">
+                                                <a href="#!"><img
+                                                        class="avatar-img rounded border border-white border-3" src=""
+                                                        alt=""></a>
+                                            </div>
+                                            <h5 class="mb-0"> <a href="#!">
+                                                    <%=username%>
+                                                </a> </h5>
+                                            <p class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                Recusandae architecto tempore dolore!</p>
+
+                                            <div class="hstack gap-2 gap-xl-3 justify-content-center">
+                                                <div>
+                                                    <h6 class="mb-0" id="posts-count">0</h6>
+                                                    <small>Post</small>
+                                                </div>
+                                                <div class="vr"></div>
+                                                <div>
+                                                    <h6 class="mb-0" id="followers-count">0</h6>
+                                                    <small>Followers</small>
+                                                </div>
+                                                <div class="vr"></div>
+                                                <div>
+                                                    <h6 class="mb-0" id="followings-count">0</h6>
+                                                    <small>Following</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer text-center py-2">
+                                        <a class="btn btn-link btn-sm" href="/M00964713/profile">View Profile </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </nav>
+
+                </div>
+                <div class="col-md-8 col-lg-6 vstack gap-4" id="userList">
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <div class="d-md-flex align-items-center mb-4">
+                                <div class="avatar me-3 mb-3 mb-md-0">
+                                    <a href="#!"> <img class="avatar-img rounded-circle"
+                                            src="https://social.webestica.com/assets/images/avatar/01.jpg" alt=""> </a>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-sm-flex align-items-start">
+                                        <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
+                                    </div>
+                                </div>
+                                <div class="ms-md-auto d-flex">
+                                    <button class="btn btn-primary-soft btn-sm mb-0"> Follow </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://social.webestica.com/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://social.webestica.com/assets/vendor/glightbox-master/dist/js/glightbox.min.js"></script>
+    <script src="https://social.webestica.com/assets/vendor/dropzone/dist/dropzone.js"></script>
+    <script src="https://social.webestica.com/assets/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://social.webestica.com/assets/js/functions.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const resultsContainer = document.getElementById('userList');
+        let query = document.baseURI.split("?")[1].split("=")[1].replace('+', ' ')
+        let userId = localStorage.getItem("userId")
+
+        let postsCount = document.getElementById('posts-count')
+        let followersCount = document.getElementById('followers-count')
+        let followingsCount = document.getElementById('followings-count')
+
+        let postsCountLocal = localStorage.getItem("postsCount")
+        let followersCountLocal = localStorage.getItem("followersCount")
+        let followingsCountLocal = localStorage.getItem("followingsCount")
+
+
+
+        postsCount.innerText = postsCountLocal
+        followersCount.innerText = followersCountLocal
+        followingsCount.innerText = followingsCountLocal
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: `/M00964713/users/search?username=${query}`,
+                success: function (response) {
+                    if (response.length > 0 && response) {
+                        for (let i = 0; i < response.length; i++) {
+                            // change buttons text
+                            $.ajax({
+                                type: "GET",
+                                url: `/M00964713/user/${userId}`,
+                                success: function (result) {
+                                    resultsContainer.innerHTML += `
+                                           <div class="card">
+                                            <div class="card-body">
+                                                                                            <div class="d-md-flex align-items-center mb-4">
+                                                                                                <div class="avatar me-3 mb-3 mb-md-0">
+                                                                                                    <a href="#!"> <img class="avatar-img rounded-circle"
+                                                                                                            src="${response[i].avatar}" alt=""> </a>
+                                                                                                </div>
+                                                                                                <div class="w-100">
+                                                                                                    <div class="d-sm-flex align-items-start">
+                                                                                                        <h6 class="mb-0"><a href="#!">${response[i].username} </a></h6>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="ms-md-auto d-flex" style="${response[i].username === result.user.username}">
+                                                                                                    <button class="btn btn-primary-soft btn-sm mb-0 follow-btn" id="${response[i]._id}"> ${(result.user.followings && result.user.followings.length > 0) ? (result.user.followings.includes(response[i]._id) ? "Followed" : "Follow") : "Follow"} </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    `
+
+
+                                },
+                                error: function (xhr, textStatus, errorThrown) {
+                                    console.log(xhr);
+                                    console.log(textStatus);
+                                    console.log(errorThrown);
+                                },
+                            });
+
+                        }
+
+                    } else {
+                        resultsContainer.innerHTML += "<h3 style='text-align:center;color:#888;'>Search has no result...</h3>"
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+        })
+
+        // Follow User
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains('follow-btn')) {
+                let id = e.target.id
+
+                // follow
+                $.ajax({
+                    type: "POST",
+                    url: `/M00964713/follow`,
+                    data: {
+                        "followerId": userId,
+                        "followeeId": id,
+                    },
+                    success: function (response) {
+                        Swal.fire("User Followed...!");
+
+                        setTimeout(() => {
+                            location.reload()
+                        }, 4000)
+
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    },
+                });
+            }
+
+        })
+
+
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".logout-btn").click(function (e) {
+                e.preventDefault()
+
+                localStorage.removeItem('userId')
+                localStorage.removeItem('postsCount')
+                localStorage.removeItem('followersCount')
+                localStorage.removeItem('followingsCount')
+
+                $.ajax({
+                    type: "DELETE",
+                    url: '/M00964713/login',
+                    success: function (response) {
+                        console.log(response);
+
+                    }
+                });
+
+                location.reload('/M00964713')
+            });
+        });
+
+        // avatar
+        let avatarUrl = localStorage.getItem("avatar")
+        let allAvatars = document.querySelectorAll('.avatar-img')
+
+        allAvatars.forEach(element => {
+            element.src = avatarUrl
+        });
+
+    </script>
+</body>
+
+</html>

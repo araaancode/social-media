@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Social Media</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" type="text/css" href="https://social.webestica.com/assets/vendor/font-awesome/css/all.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://social.webestica.com/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="https://social.webestica.com/assets/vendor/dropzone/dist/dropzone.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://social.webestica.com/assets/vendor/glightbox-master/dist/css/glightbox.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://social.webestica.com/assets/vendor/choices.js/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://social.webestica.com/assets/vendor/flatpickr/dist/flatpickr.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://social.webestica.com/assets/css/style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.js"
+    integrity="sha512-JCDnPKShC1tVU4pNu5mhCEt6KWmHf0XPojB0OILRMkr89Eq9BHeBP+54oUlsmj8R5oWqmJstG1QoY6HkkKeUAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.css"
+    integrity="sha512-6qScZESleBziOBqJwOPurSy6lhLqHGjHNALOOFX0mzRVPiE5SZQvepRzeSO1OB475fcZywuMjxtkrFaO93aq9g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+  <header class="navbar-light fixed-top header-static bg-mode">
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/M00964713">
+          <img class="light-mode-item navbar-brand-item" src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png"
+            alt="logo">
+          <img class="dark-mode-item navbar-brand-item" src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png"
+            alt="logo">
+        </a>
+        <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-animation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0"
+            style="margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+            <div class="nav-item w-100">
+              <form class="rounded position-relative" method="GET" action="/M00964713/users">
+                <input class="form-control ps-5 bg-light" type="search" name="username" placeholder="Search Users..."
+                  aria-label="Search">
+                <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                  type="submit"><i class="bi bi-search fs-5"> </i></button>
+              </form>
+            </div>
+
+            <div class="nav-item w-100 mx-4">
+              <form class="rounded position-relative" method="GET" action="/M00964713/contents">
+                <input class="form-control ps-5 bg-light" type="search" name="title" id="title"
+                  placeholder="Search Contents..." aria-label="Search">
+                <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                  type="submit"><i class="bi bi-search fs-5"> </i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+
+          <li class="nav-item ms-2 dropdown">
+            <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside"
+              data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="avatar-img rounded-2" src="" alt="">
+            </a>
+            <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3"
+              aria-labelledby="profileDropdown">
+              <li class="px-3">
+                <div class="d-flex align-items-center position-relative">
+                  <div class="avatar me-3">
+                    <img class="avatar-img rounded-circle" src="" alt="avatar">
+                  </div>
+                  <div>
+                    <a class="h6 stretched-link" href="#">
+                      <%=username%>
+                    </a>
+                  </div>
+                </div>
+                <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="/M00964713/profile">View
+                  profile</a>
+              </li>
+
+              <li><button class="dropdown-item bg-danger-soft-hover logout-btn"><i
+                    class="bi bi-power fa-fw me-2"></i>Sign
+                  Out</button></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-12 vstack gap-4">
+          <div class="card">
+            <div class="h-200px rounded-top"
+              style="background-image:url(https://social.webestica.com/assets/images/bg/05.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+            </div>
+            <div class="card-body py-0">
+              <div class="d-sm-flex align-items-start text-center text-sm-start">
+                <div>
+                  <div class="avatar avatar-xxl mt-n5 mb-3">
+                    <img class="avatar-img rounded-circle border border-white border-3" src="" alt="">
+                  </div>
+                </div>
+                <div class="ms-sm-4 mt-sm-3">
+                  <h1 class="mb-0 h5">
+                    <%=username%> <i class="bi bi-patch-check-fill text-success small"></i>
+                  </h1>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="card">
+            <div class="col-lg-12 vstack gap-4">
+              <div class="tab-content py-0 mb-0">
+                <div class="tab-pane show active fade" id="nav-setting-tab-1" role="tabpanel">
+                  <div class=" mb-4">
+                    <div class="card-header border-0 pb-0">
+                      <h1 class="h5 card-title">Update Avatar</h1>
+                    </div>
+                    <div class="card-body">
+                      <label class="form-label" for="avatar">Avatar</label>
+                      <input type="file" class="form-control" id="avatar" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="col-lg-12 vstack gap-4">
+              <div class="tab-content py-0 mb-0">
+                <div class="tab-pane show active fade" id="nav-setting-tab-1" role="tabpanel">
+                  <div class=" mb-4">
+                    <div class="card-header border-0 pb-0">
+                      <h1 class="h5 card-title">Update Profile</h1>
+                    </div>
+                    <div class="card-body">
+                      <form class="row g-3">
+                        <div class="col-sm-6 col-lg-4">
+                          <label class="form-label">First name</label>
+                          <input type="text" class="form-control" placeholder="First name" id="firstname">
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                          <label class="form-label">Last name</label>
+                          <input type="text" class="form-control" placeholder="Last name" id="lastname">
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                          <label class="form-label">Username</label>
+                          <input type="text" class="form-control" placeholder="Username" id="username">
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="form-label">Phone</label>
+                          <input type="text" class="form-control" placeholder="Phone" id="phone">
+                        </div>
+
+                        <div class="col-sm-6">
+                          <label class="form-label">Email</label>
+                          <input type="text" class="form-control" placeholder="Email" id="email">
+                        </div>
+
+                        <div class="col-12 text-end">
+                          <button class="btn btn-sm btn-primary mb-0 update-btn">Save changes</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="row g-4">
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+
+  <script src="https://social.webestica.com//assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://social.webestica.com//assets/vendor/dropzone/dist/dropzone.js"></script>
+  <script src="https://social.webestica.com//assets/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="https://social.webestica.com//assets/vendor/glightbox-master/dist/js/glightbox.min.js"></script>
+  <script src="https://social.webestica.com//assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
+
+  <script src="https://social.webestica.com//assets/js/functions.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    $(document).ready(function () {
+      let userId = localStorage.getItem('userId')
+
+      // logout
+      $(".logout-btn").click(function (e) {
+        e.preventDefault()
+
+        localStorage.removeItem('userId')
+        localStorage.removeItem('postsCount')
+        localStorage.removeItem('followersCount')
+        localStorage.removeItem('followingsCount')
+
+        $.ajax({
+          type: "DELETE",
+          url: '/M00964713/login',
+          success: function (response) {
+            console.log(response);
+
+          }
+        });
+
+        location.reload('/M00964713')
+      });
+
+      // get user data
+      $.ajax({
+        type: "GET",
+        url: `/M00964713/user/${userId}`,
+        success: function (response) {
+          $('#firstname').val(response.user.firstname),
+            $('#lastname').val(response.user.lastname),
+            $('#phone').val(response.user.phone),
+            $('#username').val(response.user.username),
+            $('#email').val(response.user.email)
+        }
+      });
+
+
+      // update user
+      $(".update-btn").click(function (e) {
+        $.ajax({
+          type: "PUT",
+          url: `/M00964713/user/${userId}/update-user`,
+          data: {
+            firstname: $('#firstname').val(),
+            lastname: $('#lastname').val(),
+            phone: $('#phone').val(),
+            username: $('#username').val(),
+            email: $('#email').val()
+          },
+          success: function (response) {
+            console.log(response);
+            Swal.fire("User Updated...!!");
+
+            setTimeout(() => {
+              location.reload()
+            }, 4000)
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr);
+            console.log(textStatus);
+            console.log(errorThrown);
+          },
+        });
+      })
+
+
+      // update avatar
+      $('#avatar').change(function (e) {
+        var fd = new FormData();
+        fd.set('avatar', $('#avatar')[0].files[0])
+        $.ajax({
+          type: "PUT",
+          url: `/M00964713/user/${userId}/update-avatar`,
+          data: fd,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            // Swal.fire(
+            //   'updated!',
+            //   'Your file has been updated',
+            //   'success'
+            // ).then((re) => {
+            //   if (re.value) {
+            //     openModalAds($('#editJustInfoSubmit').data('adsid'))
+            //   }
+            // })
+
+
+            console.log(response);
+
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr);
+            console.log(textStatus);
+            console.log(errorThrown);
+          },
+        });
+      });
+    });
+
+
+    // avatar
+    let avatarUrl = localStorage.getItem("avatar")
+    let allAvatars = document.querySelectorAll('.avatar-img')
+
+    allAvatars.forEach(element => {
+      element.src = avatarUrl
+    });
+
+  </script>
+
+</body>
+
+</html>

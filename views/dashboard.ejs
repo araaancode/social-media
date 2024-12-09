@@ -1,0 +1,838 @@
+<!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <% if (message) { %>
+            <div class="alert alert-success">
+                <%= message %>
+            </div>
+            <% } %>
+                <h1>Welcome, <%= username %>!</h1>
+                <button class="btn btn-danger logout-btn">Logout</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $(".logout-btn").click(function (e) {
+                e.preventDefault()
+
+                $.ajax({
+                    type: "DELETE",
+                    url: '/M00964713/login',
+                    success: function (response) {
+                        location.reload('/M00964713')
+                    }
+                });
+
+                location.reload('/M00964713')
+            });
+        });
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Social Media</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://social.webestica.com/assets/vendor/choices.js/public/assets/styles/choices.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://social.webestica.com/assets/css/style.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.js"
+        integrity="sha512-JCDnPKShC1tVU4pNu5mhCEt6KWmHf0XPojB0OILRMkr89Eq9BHeBP+54oUlsmj8R5oWqmJstG1QoY6HkkKeUAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.css"
+        integrity="sha512-6qScZESleBziOBqJwOPurSy6lhLqHGjHNALOOFX0mzRVPiE5SZQvepRzeSO1OB475fcZywuMjxtkrFaO93aq9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+    <header class="navbar-light fixed-top header-static bg-mode">
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/M00964713">
+                    <img class="light-mode-item navbar-brand-item"
+                        src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" alt="logo">
+                    <img class="dark-mode-item navbar-brand-item"
+                        src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" alt="logo">
+                </a>
+                <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-animation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0"
+                        style="margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                        <div class="nav-item w-100">
+                            <form class="rounded position-relative" method="GET" action="/M00964713/users">
+                                <input class="form-control ps-5 bg-light" type="search" name="username" id="username"
+                                    placeholder="Search Users..." aria-label="Search">
+                                <button
+                                    class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                            </form>
+                        </div>
+
+                        <div class="nav-item w-100 mx-4">
+                            <form class="rounded position-relative" method="GET" action="/M00964713/contents">
+                                <input class="form-control ps-5 bg-light" type="search" name="title" id="title"
+                                    placeholder="Search Contents..." aria-label="Search">
+                                <button
+                                    class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+
+                    <li class="nav-item ms-2 dropdown">
+                        <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button"
+                            data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img id="<%=user._id%>" class="avatar-img rounded-2 userId" src="<%=user.avatar%>" alt="">
+                        </a>
+                        <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3"
+                            aria-labelledby="profileDropdown">
+                            <li class="px-3">
+                                <div class="d-flex align-items-center position-relative">
+                                    <div class="avatar me-3">
+                                        <img class="avatar-img rounded-circle" src="<%=user.avatar%>" alt="avatar">
+                                    </div>
+                                    <div>
+                                        <a class="h6 stretched-link" href="#">
+                                            <%=username%>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center"
+                                    href="/M00964713/profile">View
+                                    profile</a>
+                            </li>
+                            <li><button class="dropdown-item bg-danger-soft-hover logout-btn"><i
+                                        class="bi bi-power fa-fw me-2"></i>Sign
+                                    Out</button></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="d-flex align-items-center d-lg-none">
+                            <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                                <span class="btn btn-primary"><span class="h6 mb-0 fw-bold d-lg-none ms-2 text-white">My
+                                        profile</span></span>
+
+                            </button>
+                        </div>
+
+                        <nav class="navbar navbar-expand-lg mx-0">
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+                                <div class="offcanvas-header">
+                                    <button type="button" class="btn-close text-reset ms-auto"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+
+                                <div class="offcanvas-body d-block px-2 px-lg-0">
+                                    <div class="card overflow-hidden">
+                                        <div class="h-50px"
+                                            style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <div class="text-center">
+                                                <div class="avatar avatar-lg mt-n5 mb-3">
+                                                    <a href="#!"><img
+                                                            class="avatar-img rounded border border-white border-3"
+                                                            src="<%=user.avatar%>" alt=""></a>
+                                                </div>
+                                                <h5 class="mb-0"> <a href="#!">
+                                                        <%=username%>
+                                                    </a> </h5>
+                                                <p class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing
+                                                    elit.
+                                                    Recusandae architecto tempore dolore!</p>
+
+                                                <div class="hstack gap-2 gap-xl-3 justify-content-center">
+                                                    <div>
+                                                        <h6 class="mb-0" id="posts-count">0</h6>
+                                                        <small>Post</small>
+                                                    </div>
+                                                    <div class="vr"></div>
+                                                    <div>
+                                                        <h6 class="mb-0" id="followers-count">0</h6>
+                                                        <small>Followers</small>
+                                                    </div>
+                                                    <div class="vr"></div>
+                                                    <div>
+                                                        <h6 class="mb-0" id="followings-count">0</h6>
+                                                        <small>Following</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-footer text-center py-2">
+                                            <a class="btn btn-link btn-sm" href="/M00964713/profile">View Profile </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </nav>
+
+                        <!-- Navbar END-->
+                    </div>
+
+                    <!-- <div class="row mt-4">
+                        <nav class="navbar navbar-expand-lg mx-0">
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+                                <div class="offcanvas-header">
+                                    <button type="button" class="btn-close text-reset ms-auto"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+
+                                <div class="offcanvas-body d-block px-2 px-lg-0">
+
+                                    <div class="card overflow-hidden">
+                                        <div class="">
+                                            <div class="card-header pb-0 border-0">
+                                                <h5 class="card-title mb-0">Who to follow</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="hstack gap-2 mb-3">
+                                                    <div class="avatar">
+                                                        <a href="#!"><img class="avatar-img rounded-circle"
+                                                                src="https://cdn-icons-png.flaticon.com/128/1144/1144709.png"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <div class="overflow-hidden">
+                                                        <a class="h6 mb-0" href="#!">Judy Nguyen </a>
+                                                    </div>
+                                                    <a class="btn btn-primary-soft rounded-circle icon-md ms-auto"
+                                                        href="#"><i class="fa-solid fa-plus"> </i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="h-50px"
+                                            style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                                <div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0"
+                                                    style="margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                                                    <div class="nav-item w-100">
+                                                        <form class="rounded position-relative" method="GET"
+                                                            action="/M00964713/contents">
+                                                            <input class="form-control ps-5 bg-light" type="search"
+                                                                name="title" id="title" placeholder="Search Content..."
+                                                                aria-label="Search">
+                                                            <button
+                                                                class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                                                                type="submit"><i class="bi bi-search fs-5">
+                                                                </i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </nav>
+
+                    </div> -->
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <!-- Card START -->
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">
+                                        Followings </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                                        Followers </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3"> My Posts
+                                    </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4"> Posts
+                                    </a> </li>
+                            </ul>
+                            <div class="tab-content mb-0 pb-0">
+                                <div class="tab-pane fade show active" id="tab-1">
+                                    <div class="row g-4" id="followings-tab">
+                                        <!-- <div class="col-sm-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="h-80px rounded-top"
+                                                    style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                </div>
+                                                <div class="card-body text-center pt-0">
+                                                    <div class="avatar avatar-lg mt-n5 mb-3">
+                                                        <a href="group-details.html"><img
+                                                                class="avatar-img rounded-circle border border-white border-3 bg-white"
+                                                                src="https://cdn-icons-png.flaticon.com/128/15315/15315520.png"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <h5 class="mb-0"> <a href="group-details.html">username</a>
+                                                    </h5>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a class="btn btn-success-soft btn-sm" href="#!"> UnFollow </a>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-2">
+                                    <div class="row g-4" id="followers-tab">
+                                        <!-- <div class="col-sm-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="h-80px rounded-top"
+                                                    style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                </div>
+                                                <div class="card-body text-center pt-0">
+                                                    <div class="avatar avatar-lg mt-n5 mb-3">
+                                                        <a href="group-details.html"><img
+                                                                class="avatar-img rounded-circle border border-white border-3 bg-white"
+                                                                src="https://cdn-icons-png.flaticon.com/128/15315/15315520.png"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <h5 class="mb-0"> <a href="group-details.html">username</a>
+                                                    </h5>
+                                                </div>
+
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="tab-3">
+                                    <div class="row g-4" id="myposts-tab">
+                                        <!-- <div style="margin:20px auto" id="create-post-div" style="display: none;">
+                                            <i class="display-1 text-body-secondary bi bi-people"> </i>
+                                            <h4 class="mt-2 mb-3 text-body">No Posts...</h4>
+                                                        <button class="btn btn-primary-soft btn-sm" data-bs-toggle="modal"
+                                                            data-bs-target="#modalCreateGroup"> Click here to add </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="tab-4">
+                                    <div class="row g-4" id="followingsposts-tab">
+                                        <!-- <div class="my-sm-5 py-sm-5 text-center">
+                                        <i class="display-1 text-body-secondary bi bi-people"> </i>
+                                        <h4 class="mt-2 mb-3 text-body">No Posts...</h4>
+                                        <button class="btn btn-primary-soft btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#modalCreateGroup"> Click here to add </button>
+                                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+    <div class="modal fade" id="modalCreateGroup" tabindex="-1" aria-labelledby="modalLabelCreateGroup"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabelCreateGroup">Create Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="javascript:void(0);">
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-uploader me-3">
+                                    <div class="">
+                                        <label class="form-label" for="image">Post Image</label>
+                                        <input type="file" class="form-control" id="image" name="image" />
+                                    </div>
+                                    <!-- <div class="avatar avatar-xl position-relative">
+                                        <img id="avatar-preview"
+                                            class="avatar-img rounded-circle border border-white border-3 shadow"
+                                            src="https://cdn-icons-png.flaticon.com/128/6168/6168913.png" alt="">
+                                    </div> -->
+                                </div>
+                                <!-- <div class="avatar-remove">
+                                    <button type="button" id="avatar-reset-img" class="btn btn-light">Delete</button>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Title </label>
+                            <input type="text" class="form-control" name="title" id="title"
+                                placeholder="Add post title here">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Content </label>
+                            <textarea class="form-control" rows="3" name="content" id="content"
+                                placeholder="Content here"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success-soft" id="create-post-btn">Create now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://social.webestica.com/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://social.webestica.com/assets/vendor/glightbox-master/dist/js/glightbox.min.js"></script>
+    <script src="https://social.webestica.com/assets/vendor/dropzone/dist/dropzone.js"></script>
+    <script src="https://social.webestica.com/assets/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://social.webestica.com/assets/js/functions.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let userId = document.querySelector('.userId').id
+        localStorage.setItem("userId", userId)
+        let followingsTab = document.getElementById('followings-tab')
+        let followersTab = document.getElementById('followers-tab')
+        let mypostsTab = document.getElementById('myposts-tab')
+        // let createPostDiv = document.getElementById('create-post-div')
+        let followingspostsTab = document.getElementById('followingsposts-tab')
+
+        let postsCount = document.getElementById('posts-count')
+        let followersCount = document.getElementById('followers-count')
+        let followingsCount = document.getElementById('followings-count')
+
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "GET",
+                url: `M00964713/user/${userId}`,
+                success: function (response) {
+                    localStorage.setItem("avatar", response.user.avatar)
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+
+            // get all posts from followings
+            $.ajax({
+                type: "GET",
+                url: `M00964713/contents/${userId}`,
+                success: function (response) {
+                    if (response.posts.length > 0) {
+                        for (let i = 0; i < response.posts.length; i++) {
+
+                            $.ajax({
+                                type: "GET",
+                                url: `/M00964713/user/${response.posts[i].userId}`,
+
+                                success: function (dataResult) {
+                                    followingspostsTab.innerHTML += `
+                                           <div class="col-sm-6 col-lg-4">
+                                                    <div class="card">
+                                                        <div class="h-40px rounded-top"
+                                                            style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                        </div>
+                                                        <div class="card-body text-center pt-0">
+                                                            <div class="mt-n5 mb-3">
+                                                                <a href="#"><img 
+                                                                        style="height:100px"
+                                                                        class="border border-white mt-4 border-3 bg-white"
+                                                                        src="${response.posts[i].image}"
+                                                                        alt=""></a>
+                                                            </div>
+                                                            <div class="mt-n5 mb-3">
+                                                                <img
+                                                                        class="border border-white mt-4 border-3 bg-white"
+                                                                        src="${response.posts[i].userId}"
+                                                                        alt="">
+                                                            </div>
+
+                                                             <div style="display:flex;flex-direction:column;justify-content:left;align-items:left;">
+                                                                    <span>
+                                                                        <img width="40" height="40" style:"border-radius:50%;margin:0;" src="${dataResult.user.avatar}" />
+                                                                        <p>${dataResult.user.username}</p>
+                                                                    </span>
+                                                                    <h6 class="mb-0" style='text-align:left;'>${response.posts[i].title}</h6>
+                                                                    <p class="mb-0 mt-2" style='text-align:left;'>${response.posts[i].content.slice(0, 40)}</p>
+                                                                    <p class="mb-0" style='text-align:left;font-size:12px'>${new Date(response.posts[i].createdAt).toLocaleDateString('en')}</p>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    `
+                                }
+                            });
+
+
+                        }
+
+                    } else {
+                        followingspostsTab.innerHTML += "<h3 style='text-align:center;color:#888;'>....</h3>"
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+
+
+            // logout code
+            $(".logout-btn").click(function (e) {
+                e.preventDefault()
+
+                localStorage.removeItem('userId')
+                localStorage.removeItem('postsCount')
+                localStorage.removeItem('followersCount')
+                localStorage.removeItem('followingsCount')
+
+                $.ajax({
+                    type: "DELETE",
+                    url: '/M00964713/login',
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    },
+                });
+
+                location.reload('/M00964713')
+            });
+
+            // get user's followers
+            $.ajax({
+                type: "GET",
+                url: `/M00964713/followers/${userId}`,
+                success: function (response) {
+                    followersCount.innerText = response.followers.length
+                    localStorage.setItem("followersCount", response.followers.length)
+
+                    if (response.followers.length > 0) {
+                        for (let i = 0; i < response.followers.length; i++) {
+                            $.ajax({
+                                type: "GET",
+                                url: `/M00964713/user/${response.followers[i]}`,
+                                success: function (response) {
+                                    followersTab.innerHTML += `
+                                        <div class="col-sm-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="h-40px rounded-top"
+                                                    style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                </div>
+                                                <div class="card-body text-center pt-0">
+                                                    <div class="avatar avatar-lg mt-n5 mb-3">
+                                                        <a href="group-details.html"><img
+                                                                class="avatar-img rounded-circle border border-white border-3 bg-white"
+                                                                src="https://cdn-icons-png.flaticon.com/128/15315/15315520.png"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <h5 class="mb-0"> <a href="group-details.html">${response.user.username}</a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `
+                                }
+                            });
+                        }
+                    } else {
+                        followersTab.innerHTML = "<h6>There is no followers yet!!</h6>"
+
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+
+            // get user's followings
+            $.ajax({
+                type: "GET",
+                url: `/M00964713/followings/${userId}`,
+                success: function (response) {
+                    followingsCount.innerText = response.followings.length
+                    localStorage.setItem("followingsCount", response.followings.length)
+
+
+                    if (response.followings.length > 0) {
+                        for (let i = 0; i < response.followings.length; i++) {
+                            $.ajax({
+                                type: "GET",
+                                url: `/M00964713/user/${response.followings[i]}`,
+                                success: function (response) {
+
+                                    followingsTab.innerHTML += `
+                                        <div class="col-sm-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="h-40px rounded-top"
+                                                    style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                </div>
+                                                <div class="card-body text-center pt-0">
+                                                    <div class="avatar avatar-lg mt-n5 mb-3">
+                                                        <a href="group-details.html"><img
+                                                                class="avatar-img rounded-circle border border-white border-3 bg-white"
+                                                                src="https://cdn-icons-png.flaticon.com/128/15315/15315520.png"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <h5 class="mb-0"> <a href="group-details.html">${response.user.username}</a>
+                                                    </h5>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <button type="button" class="btn btn-success-soft btn-sm unfollow-btn" id="${response.user._id}"> UnFollow </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `
+                                }
+                            });
+
+                        }
+                    } else {
+                        followingsTab.innerHTML = "<h6>There is no followings yet!!</61>"
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+
+            // get all user's posts
+            $.ajax({
+                type: "GET",
+                url: '/M00964713/my-posts',
+                success: function (response) {
+                    console.log(response);
+
+                    if (response.posts.length > 0) {
+                        postsCount.innerText = response.posts.length
+                        localStorage.setItem("postsCount", response.posts.length)
+
+                        for (let i = 0; i < response.posts.length; i++) {
+
+                            $.ajax({
+                                type: "GET",
+                                url: `/M00964713/user/${response.posts[i].userId}`,
+                                success: function (data) {
+                                    console.log(data);
+
+                                    mypostsTab.innerHTML += `
+                                        <div class="col-sm-6 col-lg-4">
+                                                        <div class="card">
+                                                            <div class="h-40px rounded-top"
+                                                                style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                                            </div>
+                                                            <div class="card-body text-center pt-0">
+                                                                <div class="mt-n5 mb-3">
+                                                                    <a href="#"><img
+                                                                        style="height:100px"
+                                                                            class="border border-white mt-4 border-3 bg-white"
+                                                                            src="../../uploads/${response.posts[i].image}"
+                                                                            alt=""></a>
+                                                                </div>
+                                                                <div class="mt-n5 mb-3">
+                                                                    <img
+                                                                            class="border border-white mt-4 border-3 bg-white"
+                                                                            src="${response.posts[i].userId}"
+                                                                            alt="">
+                                                                </div> 
+                                                                <div style="display:flex;flex-direction:column;justify-content:left;align-items:left;">
+                                                                    <span>
+                                                                        <img width="40" height="40" style:"border-radius:50%;margin:0;" src="${data.user.avatar}" />
+                                                                        <p>${data.user.username}</p>
+                                                                    </span>
+                                                                    <h6 class="mb-0" style='text-align:left;'>${response.posts[i].title}</h6>
+                                                                    <p class="mb-0 mt-2" style='text-align:left;'>${response.posts[i].content.slice(0, 40)}</p>
+                                                                    <p class="mb-0" style='text-align:left;font-size:12px'>${new Date(response.posts[i].createdAt).toLocaleDateString("en")}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                
+                                        `
+                                },
+                                error: function (xhr, textStatus, errorThrown) {
+                                    console.log(xhr);
+                                    console.log(textStatus);
+                                    console.log(errorThrown);
+                                },
+                            });
+
+
+                        }
+
+                        mypostsTab.innerHTML += `
+                               <div style="margin:5px auto" id="create-post-div">
+                                            <i class="display-1 text-body-secondary bi bi-people"> </i>
+                                            <h4 class="mt-2 mb-3 text-body">No Posts...</h4>
+                                                        <button class="btn btn-primary-soft btn-sm" data-bs-toggle="modal"
+                                                            data-bs-target="#modalCreateGroup"> Click here to add </button>
+                                        </div>
+                        `
+
+                    } else {
+                        mypostsTab.innerHTML += `
+                        <div style="margin:20px auto">
+                            <i class="display-1 text-body-secondary bi bi-people"> </i>
+                           <h4 class="mt-2 mb-3 text-body">No Posts...</h4>
+                                        <button class="btn btn-primary-soft btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#modalCreateGroup"> Click here to add </button>
+                        </div>
+                        `
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+
+            // create post
+            $("#create-post-btn").click(function (e) {
+
+                let fd = new FormData();
+
+                fd.set('title', $('#title').val())
+                fd.set('content', $('#content').val())
+                fd.set('userId', userId)
+                fd.set('image', $('#image')[0].files[0])
+
+                $.ajax({
+                    type: "POST",
+                    url: '/M00964713/contents',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        Swal.fire("New Post Created...!!");
+
+                        setTimeout(() => {
+                            location.reload()
+                        }, 4000)
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    },
+                });
+
+            });
+
+            // unfollow users
+            document.addEventListener("click", function (e) {
+
+                if (e.target.classList.contains('unfollow-btn')) {
+                    let id = e.target.id
+
+                    $.ajax({
+                        type: "delete",
+                        url: `/M00964713/follow`,
+                        data: {
+                            "followerId": userId,
+                            "followeeId": id,
+                        },
+                        success: function (response) {
+                            console.log(response);
+
+                            Swal.fire("User UnFollowed...!");
+
+                            setTimeout(() => {
+                                location.reload()
+                            }, 4000)
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log(xhr);
+                            console.log(textStatus);
+                            console.log(errorThrown);
+                        },
+                    });
+                }
+
+            })
+
+        });
+
+
+        // avatar
+        let avatarUrl = localStorage.getItem("avatar")
+        let allAvatars = document.querySelectorAll('.avatar-img')
+
+        allAvatars.forEach(element => {
+            element.src = avatarUrl
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
